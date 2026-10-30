@@ -8,7 +8,22 @@ A study app for the Ukrainian driving-theory exam (ПДР, category B), made for
 - **Усі питання й відповіді:** search all 1,762 category-B questions.
 - **Пристрої:** sync status, and a QR code or link to connect another device.
 
-Hosted at https://zdam.timnox.dev by [tables-host](https://github.com/nocs32/tables-host).
+Hosted at https://zdam.timnox.dev by [tables-host](https://github.com/nocs32/tables-host) (not listed in its library: reached by the address only).
+
+## On the Pi
+
+tables-host builds this repo's `Dockerfile` as its `zdam` service: Caddy serves the app and sends `/api/*` to the sync server. Update with `cd ~/tables-host && git pull && ./deploy.sh zdam`.
+
+The sync key is made once, in `~/tables-host`:
+
+```bash
+echo "ZDAM_KEY=$(openssl rand -hex 24)" > secrets/zdam.env
+docker compose up -d zdam
+```
+
+Then open `https://zdam.timnox.dev/#k=<the key>` once on each of the person's devices, or open it on one and scan the QR code under **Пристрої** with the others. Changing the key disconnects every device until it gets the new link.
+
+Progress (and one backup per day for 30 days) is in the `zdam-data` volume. To copy it out: `docker compose cp zdam:/data/progress.json .`
 
 ## Where the questions come from
 
