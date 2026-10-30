@@ -1,0 +1,5 @@
+node_modules
+dist
+.scratch
+# The official HSC PDFs (37 MB) stay out of git; everything built from them is committed.
+data/*.pdf

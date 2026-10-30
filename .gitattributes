@@ -1,0 +1,5 @@
+# Keep LF everywhere: the Pi builds from this repo.
+* text=auto eol=lf
+*.webp binary
+*.png binary
+*.pdf binary

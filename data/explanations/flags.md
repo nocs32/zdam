@@ -1,0 +1,53 @@
+# Flagged explanations (17)
+
+- **2-28** (PDF p.21): 2.9 «г» in current pdr.txt forbids handing control to persons intoxicated, under impairing medication or ill — it no longer lists «у стані стомлення», which option 3 includes. Answer still stands overall.
+  - Q: Що з переліченого водієві заборонено?
+  - key: 4) Відповіді 1, 2 і 3.
+- **4-8** (PDF p.29): Option 3 is arguably also correct: per ПДР 1.10 («пішохідний перехід»), at an intersection without signs/markings the crossing is defined by sidewalk width, so crossing along sidewalk lines at an intersection is not «поза пішохідним переходом» and 4.14 «г» does not forbid it. That would make option 4 defensible.
+  - Q: Де пішоходам дозволено переходити дорогу, якщо є розділювальна смуга або дорога має чотири і більше смуг для руху в обох напрямках, а також у місцях, де встановлено огородження:
+  - key: 2) На пішохідних переходах, у тому числі підземних і надземних.
+- **8.1-38** (PDF p.51): Reversible signals in the image show the X and arrow in plain black/white, so it is unclear whether the red X is lit or the signal is off; either way entry is prohibited, explanation covers both.
+  - Q: Чи дозволено водієві червоного автомобіля в даній ситуації виконати випередження вантажного автомобіля з лівого боку?
+  - key: 2) Заборонено.
+- **11-39** (PDF p.101): Option 5 names sign «Напрямок руху по смузі» (5.18), but ПДР 11.1 lists signs 5.16, 5.17.1, 5.17.2 («Напрямки/Напрямок руху по смугах»); the substance of the official answer is unaffected.
+  - Q: Чим у першу чергу повинен керуватися водій нерейкового транспортного засобу для визначення кількості смуг на проїзній частині?
+  - key: 5) Дорожньою розміткою або дорожніми знаками «Напрямок руху по смугах» і «Напрямок руху по смузі».
+- **12-4** (PDF p.102): ПДР 12.6 «ґ» (current text) does not mention sign 5.3: 110 km/h applies to roads with separate carriageways divided by a dividing strip, otherwise 90. The official answer (110) assumes a «дорога для автомобілів» has a dividing strip.
+  - Q: З якою максимальною швидкістю можуть рухатися легкові автомобілі по дорогах для автомобілів (крім транспортних засобів, якими керують водії зі стажем до 2-х років)?
+  - key: 3) 110 км/год.
+- **14-16** (PDF p.120): Image does not make clear whether the solid line is the centre line or a lane divider of a multi-lane road; explanation relies on the solid line only.
+  - Q: Чи дозволено виконати обгін у цій ситуації?
+  - key: 2) Заборонено.
+- **15-3** (PDF p.132): Image is ambiguous for place Б: the car appears to sit at or just beyond the 10 m mark, which would make it legal; the official answer treats Б as within 10 m.
+  - Q: На якому з місць водієві синього автомобіля дозволено виконати зупинку?
+  - key: 3) На місці В.
+- **15-28** (PDF p.142): ПДР 15.9 «є» bans stopping in the works zone only where it would obstruct working machinery; the official answer treats the ban as unconditional.
+  - Q: Чи може водій виконати посадку (висадку) пасажирів у зоні виконання дорожніх робіт?
+  - key: 2) Не може.
+- **15-49** (PDF p.149): Plate under the parking sign is only partly legible; explanation assumes it is one of 7.6.2-7.6.6 (cars and motorcycles only), which matches the official answer.
+  - Q: Який транспортний засіб поставлено на стоянку з порушенням Правил дорожнього руху в цьому місці?
+  - key: 2) Вантажний автомобіль та мікроавтобус.
+- **16.2-99** (PDF p.202): Colour naming is ambiguous: explanation assumes 'сірий' is the oncoming light-silver car on the main road, and that the dark car on the right is on a secondary road (its sign is not visible in the image).
+  - Q: Ви повинні проїхати дане перехрестя:
+  - key: 2) Проїхати після транспортного засобу з увімкненим проблисковим маячком синього кольору та сірого автомобіля.
+- **17-3** (PDF p.206): Question text says 'white car' but the image shows a blue car (same picture as 17-2).
+  - Q: По якій траєкторії повинен рухатися водій білого автомобіля?
+  - key: 2) По траєкторії Б.
+- **23-20** (PDF p.233): Ambiguous wording: 23.1 allows towing one mechanical vehicle with one trailer, but 23.1/23.10 «ґ» forbid towing BY a vehicle with a trailer. The question doesn't say which vehicle has the trailer; official answer assumes the towed one.
+  - Q: Чи дозволяється буксирування транспортного засобу з причепом?
+  - key: 2) Дозволяється.
+- **33-254** (PDF p.309): Image shows the crossing road on the right as two carriageways split by a median; Б turns right into the far one. The official answer treats it as a separate intersection outside the sign's reach. If the far carriageway carries traffic toward the left, Б would be a wrong-way entry. Worth checking the picture.
+  - Q: У якому із зазначених напрямків Вам дозволено рух у зображеній ситуації?
+  - key: 3) У напрямках А і Б.
+- **33-294** (PDF p.320): Item 2 in the image is a plain rectangle reading 'STOP' with no distance; its identity is unclear (marking 1.21 inscription vs. a plate). Explained as marking 1.21.
+  - Q: Вимога якого із зображених знаків зобов'язує водія транспортного засобу обов'язково зупинитися на нерегульованому перехресті або залізничному переїзді?
+  - key: 1) Знак 1.
+- **34-18** (PDF p.340): Current pdr.txt section 34 (vertical marking 2.1-2.6) has no item for side surfaces of guardrails on dangerous sections; the official answer reflects older wording. Explanation relies on 8.5.2 (visual orientation).
+  - Q: Дана вертикальна дорожня розмітка на огородженні дороги попереджає:
+  - key: 3) Про рух по небезпечній ділянці дороги.
+- **37-22** (PDF p.390): Inducing vomiting is no longer generally recommended in current first-aid guidance; official answer kept.
+  - Q: Як надати домедичну допомогу в разі харчового отруєння в дорозі?
+  - key: 2) Зупинитися. Спожити багато рідини, викликати штучно блювоту, вжити активоване вугілля.
+- **37-24** (PDF p.390): Under the current basic CPR algorithm, absence of breathing means cardiac arrest and chest compressions (30:2) come first; option 1 alone or the official answer alone are both incomplete. Official answer kept.
+  - Q: За відсутності дихання в потерпілого потрібно:
+  - key: 2) Зробити штучне дихання
