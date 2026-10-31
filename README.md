@@ -23,6 +23,8 @@ docker compose up -d zdam
 
 Then open `https://zdam.timnox.dev/#k=<the key>` once on each of the person's devices, or open it on one and scan the QR code under **Пристрої** with the others. Changing the key disconnects every device until it gets the new link.
 
+On an iPhone, Здам added to the Home Screen keeps its own storage, apart from Safari, so opening the link in Safari doesn't connect it. Copy the link instead, open Здам from the Home Screen, and tap **Вставити посилання** under **Пристрої**.
+
 Progress (and one backup per day for 30 days) is in the `zdam-data` volume. To copy it out: `docker compose cp zdam:/data/progress.json .`
 
 ## Where the questions come from

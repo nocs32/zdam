@@ -49,18 +49,48 @@ export function deviceLink(): string | null {
   return `${location.origin}${location.pathname}#k=${encodeURIComponent(key)}`
 }
 
+function saveKey(key: string) {
+  try {
+    localStorage.setItem(KEY_STORE, key)
+  } catch {
+    // Without storage the key can't be kept; the app still works on this device alone.
+  }
+}
+
 /** Take the key from a #k=… link (and remove it from the address bar), then go home. */
 function takeKeyFromUrl() {
   const m = location.hash.match(/^#k=([^&/]+)/)
   if (!m) return
-  try {
-    localStorage.setItem(KEY_STORE, decodeURIComponent(m[1]))
-  } catch {
-    // Without storage the key can't be kept; the app still works on this device alone.
-  }
+  saveKey(decodeURIComponent(m[1]))
   history.replaceState(null, '', `${location.pathname}#/`)
   // replaceState doesn't announce itself; tell the router the screen changed.
   window.dispatchEvent(new HashChangeEvent('hashchange'))
+}
+
+/** The key in a pasted device link, or a pasted bare key. */
+function keyFrom(text: string): string | null {
+  const t = text.trim()
+  const m = t.match(/#k=([^&/\s]+)/)
+  if (m) {
+    try {
+      return decodeURIComponent(m[1])
+    } catch {
+      return null
+    }
+  }
+  return /^[A-Za-z0-9_-]{16,}$/.test(t) ? t : null
+}
+
+/**
+ * Connect this device with a pasted device link. For apps added to an iPhone's home screen:
+ * they keep their own storage apart from Safari and have no address bar to open the link in.
+ */
+export function connectWith(text: string): boolean {
+  const key = keyFrom(text)
+  if (!key) return false
+  saveKey(key)
+  void syncNow()
+  return true
 }
 
 async function request(method: 'GET' | 'PUT', key: string, body?: unknown, version?: number) {

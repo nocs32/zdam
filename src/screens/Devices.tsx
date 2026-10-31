@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type FormEvent } from 'react'
 import QRCode from 'qrcode'
 import { go } from '../router'
 import { TopBar } from '../components/TopBar'
-import { deviceLink, syncNow, useSyncStatus, type SyncStatus } from '../sync/sync'
+import { connectWith, deviceLink, syncNow, useSyncStatus, type SyncStatus } from '../sync/sync'
 
 const timeFmt = new Intl.DateTimeFormat('uk-UA', { day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' })
 
@@ -17,7 +17,7 @@ export function statusText(s: SyncStatus): string {
     case 'offline':
       return 'Немає зв’язку. Прогрес збережено тут і з’явиться на інших пристроях, коли повернеться інтернет.'
     case 'badkey':
-      return 'Посилання для синхронізації не підходить. Відкрийте правильне посилання ще раз.'
+      return 'Посилання для синхронізації не підходить. Відкрийте або вставте правильне посилання.'
   }
 }
 
@@ -45,14 +45,14 @@ export function Devices() {
       <TopBar title="Пристрої" onBack={() => go()} />
       <section className={`plate sync-card is-${status.kind}`}>
         <p className="sync-state">{statusText(status)}</p>
-        {status.kind !== 'off' && (
+        {status.kind !== 'off' && status.kind !== 'badkey' && (
           <button className="btn-plate" onClick={() => void syncNow()} disabled={status.kind === 'syncing'}>
             Синхронізувати зараз
           </button>
         )}
       </section>
 
-      {link ? (
+      {link && status.kind !== 'badkey' ? (
         <section className="block">
           <h2 className="block-title">Додати ще один пристрій</h2>
           <p>
@@ -73,13 +73,70 @@ export function Devices() {
           <p className="lead">Це посилання відкриває ваш прогрес. Надсилайте його лише на власні пристрої.</p>
         </section>
       ) : (
-        <section className="block">
-          <p>
-            Щоб бачити однаковий прогрес на телефоні й планшеті, відкрийте на кожному з них особисте посилання для
-            синхронізації. Його можна отримати в того, хто налаштовував застосунок.
-          </p>
-        </section>
+        <Connect />
       )}
     </main>
+  )
+}
+
+/** Connect this device: by opening the link, or by pasting it (the only way in an app added to an iPhone's home screen). */
+function Connect() {
+  const [manual, setManual] = useState(false)
+  const [text, setText] = useState('')
+  const [error, setError] = useState('')
+
+  const paste = async () => {
+    let clip: string
+    try {
+      clip = await navigator.clipboard.readText()
+    } catch {
+      setManual(true) // the browser won't hand over the clipboard: paste into the field instead
+      return
+    }
+    setError(connectWith(clip) ? '' : 'У скопійованому немає посилання Здам. Скопіюйте посилання ще раз і натисніть кнопку знову.')
+  }
+
+  const submit = (e: FormEvent) => {
+    e.preventDefault()
+    setError(connectWith(text) ? '' : 'Це не посилання Здам. Перевірте, що вставили посилання повністю.')
+  }
+
+  return (
+    <section className="block">
+      <h2 className="block-title">Підключити цей пристрій</h2>
+      <p>
+        Щоб бачити однаковий прогрес на телефоні й планшеті, відкрийте на кожному з них особисте посилання для
+        синхронізації. Його можна отримати в того, хто налаштовував застосунок.
+      </p>
+      <p>Якщо Здам відкрито з іконки на головному екрані, скопіюйте посилання й натисніть кнопку.</p>
+      {manual ? (
+        <form className="stack" onSubmit={submit}>
+          <label className="field">
+            <span className="field-label">Вставте посилання</span>
+            <input
+              className="input"
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              autoFocus
+              autoComplete="off"
+              autoCapitalize="off"
+              spellCheck={false}
+            />
+          </label>
+          <button className="btn-sign" type="submit">
+            Підключити
+          </button>
+        </form>
+      ) : (
+        <button className="btn-sign" onClick={() => void paste()}>
+          Вставити посилання
+        </button>
+      )}
+      {error && (
+        <p className="lead" role="alert">
+          {error}
+        </p>
+      )}
+    </section>
   )
 }
